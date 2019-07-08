@@ -12,8 +12,10 @@ class EmailParser
   end
 
   def parse
-    if @unparsed.match(/,? /)
+    if @unparsed.match(/,? /) #comma- or space-separated emails
       @@emails = @unparsed.split(/,? /).uniq
+    else
+      @@emails << @unparsed
     end
   end
 
